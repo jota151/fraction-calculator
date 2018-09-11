@@ -6,7 +6,10 @@ class Fraction:
     def __init__(self, num, denom):
         ''' Constructor to define a fraction '''
         self.numerator = num
-        self.denominator = denom
+        if denom != 0:
+            self.denominator = denom
+        else:
+            raise ValueError
 
     def plus(self, fraction):
         ''' returns a new instance of class Fraction with the sum of self and other where other is another Fraction '''

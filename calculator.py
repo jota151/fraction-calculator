@@ -9,19 +9,25 @@ from fraction import Fraction
 
 def main():
     ''' Main entry point for the app '''
-    frac1_num = getNumber("Numerator for Fraction 1:")
-    frac1_denom = getNumber("Denominator for Fraction 1:")
-    
+    fraction1 = createFraction('Fraction 1')
     operator = getOperator()
-
-    frac2_num = getNumber("Numerator for Fraction 2:")
-    frac2_denom = getNumber("Denominator for Fraction 2:")
-
-    fraction1 = Fraction(frac1_num, frac1_denom)
-    fraction2 = Fraction(frac2_num, frac2_denom)
+    fraction2 = createFraction('Fraction 2')
+    
     print("First fraction is", fraction1)
     print("Second fraction is", fraction2)
     printResult(fraction1, fraction2, operator)
+
+def createFraction(fracName):
+    ''' Returns a valid fraction instance.
+        Takes a string to denote as label for the console message. '''
+    numerator = getNumber('Numerator for {} :'.format(fracName))
+    
+    while True:
+        denominator = getNumber('Denominator for {} :'.format(fracName))
+        try:
+            return Fraction(numerator, denominator)
+        except ValueError:
+            print('Denominator cannot be 0')
 
 def printResult(frac1, frac2, op):
     ''' returns and instance of the Fraction class after computing given operation '''
