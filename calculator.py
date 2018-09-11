@@ -5,15 +5,22 @@ __author__ = "Sayan Mukherjee"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
+from fraction import Fraction
+
 def main():
     ''' Main entry point for the app '''
     frac1_num = getNumber("Numerator for Fraction 1:")
-    frac1_denom = getNumber("Denominator for Fraction 1")
+    frac1_denom = getNumber("Denominator for Fraction 1:")
     
     operator = getOperator()
 
     frac2_num = getNumber("Numerator for Fraction 2:")
     frac2_denom = getNumber("Denominator for Fraction 2:")
+
+    fraction1 = Fraction(frac1_num, frac1_denom)
+    fraction2 = Fraction(frac2_num, frac2_denom)
+    print("First fraction is", fraction1)
+    print("Second fraction is", fraction2)
 
 def getOperator():
     while True:
