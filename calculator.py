@@ -21,6 +21,18 @@ def main():
     fraction2 = Fraction(frac2_num, frac2_denom)
     print("First fraction is", fraction1)
     print("Second fraction is", fraction2)
+    printResult(fraction1, fraction2, operator)
+
+def printResult(frac1, frac2, op):
+    ''' returns and instance of the Fraction class after computing given operation '''
+    if op == '+':
+        print('{} + {} = {}'.format(frac1, frac2, frac1.plus(frac2)))
+    elif op == '-':
+        print('{} - {} = {}'.format(frac1, frac2, frac1.minus(frac2)))
+    elif op == '*':
+        print('{} * {} = {}'.format(frac1, frac2, frac1.times(frac2)))
+    elif op == '/':
+        print('{} / {} = {}'.format(frac1, frac2, frac1.divide(frac2)))
 
 def getOperator():
     while True:
