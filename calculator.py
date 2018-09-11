@@ -13,40 +13,40 @@ def main():
     operator = getOperator()
     fraction2 = createFraction('Fraction 2')
     
-    print("First fraction is", fraction1)
-    print("Second fraction is", fraction2)
+    print("\nFirst fraction is", fraction1)
+    print("\nSecond fraction is", fraction2)
     printResult(fraction1, fraction2, operator)
 
 def createFraction(fracName):
     ''' Returns a valid fraction instance.
         Takes a string to denote as label for the console message. '''
-    numerator = getNumber('Numerator for {} :'.format(fracName))
+    numerator = getNumber('\nNumerator for {} :'.format(fracName))
     
     while True:
-        denominator = getNumber('Denominator for {} :'.format(fracName))
+        denominator = getNumber('\nDenominator for {} :'.format(fracName))
         try:
             return Fraction(numerator, denominator)
         except ValueError:
-            print('Denominator cannot be 0')
+            print('\nDenominator cannot be 0!')
 
 def printResult(frac1, frac2, op):
     ''' returns and instance of the Fraction class after computing given operation '''
     if op == '+':
-        print('{} + {} = {}'.format(frac1, frac2, frac1.plus(frac2)))
+        print('\n{} + {} = {}'.format(frac1, frac2, frac1.plus(frac2)))
     elif op == '-':
-        print('{} - {} = {}'.format(frac1, frac2, frac1.minus(frac2)))
+        print('\n{} - {} = {}'.format(frac1, frac2, frac1.minus(frac2)))
     elif op == '*':
-        print('{} * {} = {}'.format(frac1, frac2, frac1.times(frac2)))
+        print('\n{} * {} = {}'.format(frac1, frac2, frac1.times(frac2)))
     elif op == '/':
-        print('{} / {} = {}'.format(frac1, frac2, frac1.divide(frac2)))
+        print('\n{} / {} = {}'.format(frac1, frac2, frac1.divide(frac2)))
 
 def getOperator():
     while True:
-        operator = input("Choose one operator +, -, *, / :")
+        operator = input("\nChoose one operator +, -, *, / :")
         if operator == '+' or operator == '-' or operator == '*' or operator == '/':
             return operator
         else:
-            print("Invalid operator!")
+            print("\nInvalid operator!")
 
 def getNumber(message):
     ''' Function accepts a string message to show on the console
@@ -56,7 +56,7 @@ def getNumber(message):
         try:
             return int(number)
         except ValueError:
-            print('{} is not an integer. Please enter an integer value.'.format(number))
+            print('\n{} is not an integer! Please enter an integer value.'.format(number))
 
 def test_suite():
     ''' function that demonstrates that the Fraction class works properly '''
