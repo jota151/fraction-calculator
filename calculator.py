@@ -9,6 +9,7 @@ from fraction import Fraction
 
 def main():
     ''' Main entry point for the app '''
+
     fraction1 = createFraction('Fraction 1')
     operator = getOperator()
     fraction2 = createFraction('Fraction 2')
@@ -20,6 +21,7 @@ def main():
 def createFraction(fracName):
     ''' Returns a valid fraction instance.
         Takes a string to denote as label for the console message. '''
+
     numerator = getNumber('\nNumerator for {} :'.format(fracName))
     
     while True:
@@ -31,6 +33,7 @@ def createFraction(fracName):
 
 def printResult(frac1, frac2, op):
     ''' returns and instance of the Fraction class after computing given operation '''
+
     if op == '+':
         print('\n{} + {} = {}'.format(frac1, frac2, frac1.plus(frac2)))
     elif op == '-':
@@ -41,6 +44,8 @@ def printResult(frac1, frac2, op):
         print('\n{} / {} = {}'.format(frac1, frac2, frac1.divide(frac2)))
 
 def getOperator():
+    ''' returns the operator chosen by the user '''
+
     while True:
         operator = input("\nChoose one operator +, -, *, / :")
         if operator == '+' or operator == '-' or operator == '*' or operator == '/':
@@ -51,6 +56,7 @@ def getOperator():
 def getNumber(message):
     ''' Function accepts a string message to show on the console
         and returns an integer value or shows ValueError exception '''
+
     while True:
         number = input(message)
         try:
@@ -60,6 +66,7 @@ def getNumber(message):
 
 def test_suite():
     ''' function that demonstrates that the Fraction class works properly '''
+
     f12 = Fraction(1, 2)
     f44 = Fraction(4, 4)
     f128 = Fraction(12, 8)
@@ -77,5 +84,6 @@ def test_suite():
 
 if __name__ == "__main__":
     """ This is executed when run from the command line """
+    
     test_suite()
     main()

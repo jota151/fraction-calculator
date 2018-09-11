@@ -48,11 +48,6 @@ class Fraction:
         ''' Returns a string representation of the fraction '''
         if self.numerator == 0:
             return '0'
-        # elif abs(self.numerator) == abs(self.denominator):
-        #     if (self.numerator < 0) ^ (self.denominator < 0): # if only one of num or denom is -ve
-        #         return '-1'
-        #     else: 
-        #         return '1'
         elif self.numerator < 0 and self.denominator < 0:
             return '{}/{}'.format(abs(self.numerator), abs(self.denominator))
         else:
