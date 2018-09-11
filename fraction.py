@@ -8,21 +8,34 @@ class Fraction:
         self.numerator = num
         self.denominator = denom
 
-    def add(self, fraction):
-        ''' Adds this instance of fraction to the one passed as argument '''
+    def plus(self, fraction):
+        ''' returns a new instance of class Fraction with the sum of self and other where other is another Fraction '''
+        common_denom = self.denominator * fraction.denominator
+        common_num = (self.numerator * fraction.denominator) + (fraction.numerator * self.denominator)
+        return Fraction(common_num, common_denom)
 
-    def subtract(self, fraction):
-        ''' Subtracts the fraction passed as argument from this instance of fraction '''
+    def minus(self, fraction):
+        '''  returns a new instance of class Fraction with the difference of self and other where other is another Fraction '''
+        common_denom = self.denominator * fraction.denominator
+        common_num = (self.numerator * fraction.denominator) - (fraction.numerator * self.denominator)
+        return Fraction(common_num, common_denom)
 
-    def multiply(self, fraction):
-        ''' Multiplies the fraction passed as argument to this instance of fraction '''
+    def times(self, fraction):
+        '''  returns a new instance of class Fraction with the product of self and other where other is another Fraction '''
+        common_num = self.numerator * fraction.numerator
+        common_denom = self.denominator * fraction.denominator
+        return Fraction(common_num, common_denom)
 
     def divide(self, fraction):
-        ''' Divides this instance of fraction by the one passed as argument '''
+        '''  returns a new instance of class Fraction with the quotient of self and other where other is another Fraction '''
+        common_num = self.numerator * fraction.denominator
+        common_denom = self.denominator * fraction.numerator
+        return Fraction(common_num, common_denom)
 
-    def equals(self, fraction):
+    def equal(self, fraction):
         ''' Tests if this instance of the fraction is equal to the one passed as argument.
             Returns True if equal, otherwise, False '''
+        return (self.numerator * fraction.denominator == self.denominator * fraction.numerator)
 
     def __str__(self):
         ''' Returns a string representation of the fraction '''
