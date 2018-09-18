@@ -35,13 +35,13 @@ def printResult(frac1, frac2, op):
     ''' returns and instance of the Fraction class after computing given operation '''
 
     if op == '+':
-        print('\n{} + {} = {}'.format(frac1, frac2, frac1.plus(frac2)))
+        print('\n{} + {} = {}'.format(frac1, frac2, frac1 + frac2))
     elif op == '-':
-        print('\n{} - {} = {}'.format(frac1, frac2, frac1.minus(frac2)))
+        print('\n{} - {} = {}'.format(frac1, frac2, frac1 - frac2))
     elif op == '*':
-        print('\n{} * {} = {}'.format(frac1, frac2, frac1.times(frac2)))
+        print('\n{} * {} = {}'.format(frac1, frac2, frac1 * frac2))
     elif op == '/':
-        print('\n{} / {} = {}'.format(frac1, frac2, frac1.divide(frac2)))
+        print('\n{} / {} = {}'.format(frac1, frac2, frac1 / frac2))
 
 def getOperator():
     ''' returns the operator chosen by the user '''
@@ -73,13 +73,13 @@ def test_suite():
     f32 = Fraction(3, 2)
 
     print('\n**********SAMPLE TEST CASES*************\n')
-    print(f12, '+', f12, '=', f12.plus(f12), '[4/4]')
-    print(f12, '+', f44, '=', f12.plus(f44), '[12/8]')
-    print(f128, '-', f12, '=', f128.minus(f12), '[16/16]' )
-    print(f12, '*', f32, '=', f12.times(f32), '[3/4]')
-    print(f128, '/', f32, '=', f128.divide(f32), '[24/24]')
-    print(f128, "==", f32, "is", f128.equal(f32), '[True]')
-    print(f12, '+', f12, '+', f12, '==', f32, 'is', f12.plus(f12.plus(f12)).equal(Fraction(3, 2)), '[True]')
+    print(f12, '+', f12, '=', f12 + f12, '[4/4]')
+    print(f12, '+', f44, '=', f12 + f44, '[12/8]')
+    print(f128, '-', f12, '=', f128 - f12, '[16/16]' )
+    print(f12, '*', f32, '=', f12 * f32, '[3/4]')
+    print(f128, '/', f32, '=', f128 / f32, '[24/24]')
+    print(f128, "==", f32, "is", f128 == f32, '[True]')
+    print(f12, '+', f12, '+', f12, '==', f32, 'is', f12 + f12 +f12 == Fraction(3, 2), '[True]')
     print('\n*****************************************\n')
 
 if __name__ == "__main__":

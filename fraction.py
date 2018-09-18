@@ -11,35 +11,35 @@ class Fraction:
         else:
             raise ValueError('\nDenominator cannot be 0!')
 
-    def plus(self, fraction):
+    def __add__(self, fraction):
         ''' returns a new instance of class Fraction with the sum of self and other where other is another Fraction '''
         common_denom = self.denominator * fraction.denominator
         common_num = (self.numerator * fraction.denominator) + (fraction.numerator * self.denominator)
 
         return Fraction(common_num, common_denom)
 
-    def minus(self, fraction):
+    def __sub__(self, fraction):
         '''  returns a new instance of class Fraction with the difference of self and other where other is another Fraction '''
         common_denom = self.denominator * fraction.denominator
         common_num = (self.numerator * fraction.denominator) - (fraction.numerator * self.denominator)
 
         return Fraction(common_num, common_denom)
 
-    def times(self, fraction):
+    def __mul__(self, fraction):
         '''  returns a new instance of class Fraction with the product of self and other where other is another Fraction '''
         common_num = self.numerator * fraction.numerator
         common_denom = self.denominator * fraction.denominator
 
         return Fraction(common_num, common_denom)
 
-    def divide(self, fraction):
+    def __truediv__(self, fraction):
         '''  returns a new instance of class Fraction with the quotient of self and other where other is another Fraction '''
         common_num = self.numerator * fraction.denominator
         common_denom = self.denominator * fraction.numerator
 
         return Fraction(common_num, common_denom)
 
-    def equal(self, fraction):
+    def __eq__(self, fraction):
         ''' Tests if this instance of the fraction is equal to the one passed as argument.
                 Returns True if equal, otherwise, False '''
         return (self.numerator * fraction.denominator == self.denominator * fraction.numerator)
