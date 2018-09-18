@@ -6,6 +6,7 @@ __version__ = "0.1.0"
 __license__ = "MIT"
 
 from fraction import Fraction
+validOperators =  ['+', '-', '*', '/', '==', '!=', '<', '<=', '>', '>=']
 
 def main():
     ''' Main entry point for the app '''
@@ -42,13 +43,26 @@ def printResult(frac1, frac2, op):
         print('\n{} * {} = {}'.format(frac1, frac2, frac1 * frac2))
     elif op == '/':
         print('\n{} / {} = {}'.format(frac1, frac2, frac1 / frac2))
+    elif op == '==':
+        print('\n{} == {} = {}'.format(frac1, frac2, frac1 == frac2))
+    elif op == '!=':
+        print('\n{} != {} = {}'.format(frac1, frac2, frac1 != frac2))
+    elif op == '<':
+        print('\n{} < {} = {}'.format(frac1, frac2, frac1 < frac2))
+    elif op == '<=':
+        print('\n{} <= {} = {}'.format(frac1, frac2, frac1 <= frac2))
+    elif op == '>':
+        print('\n{} > {} = {}'.format(frac1, frac2, frac1 > frac2))
+    elif op == '>=':
+        print('\n{} >= {} = {}'.format(frac1, frac2, frac1 >= frac2))
 
 def getOperator():
     ''' returns the operator chosen by the user '''
 
     while True:
-        operator = input("\nChoose one operator +, -, *, / :")
-        if operator == '+' or operator == '-' or operator == '*' or operator == '/':
+        operator = input("\nChoose one operator: {} ".format(validOperators))
+        # if operator == '+' or operator == '-' or operator == '*' or operator == '/':
+        if operator in validOperators:
             return operator
         else:
             print("\nInvalid operator!")

@@ -44,6 +44,31 @@ class Fraction:
                 Returns True if equal, otherwise, False '''
         return (self.numerator * fraction.denominator == self.denominator * fraction.numerator)
 
+    def __ne__(self, fraction):
+        ''' Returns True if this instance of the fraction is not equal to the one passed as argument.
+            Returns False otherwise. '''
+        return not self.__eq__(fraction)
+
+    def __lt__(self, fraction):
+        ''' Returns True if this instance of the fraction is less than the one passed as argument.
+            Returns False otherwise. '''
+        return (self.numerator * fraction.denominator < self.denominator * fraction.numerator)
+
+    def __le__(self, fraction):
+        ''' Returns True if this instance of the fraction is less than or equal to the one passed as argument.
+            Returns False otherwise. '''
+        return (self.numerator * fraction.denominator <= self.denominator * fraction.numerator)
+
+    def __gt__(self, fraction):
+        ''' Returns True if this instance of the fraction is greater than the one passed as argument.
+            Returns False otherwise. '''
+        return not self.__le__(fraction)
+
+    def __ge__(self, fraction):
+        ''' Returns True if this instance of the fraction is greater than or equal to the one passed as argument.
+            Returns False otherwise. '''
+        return not self.__lt__(fraction)
+
     def __str__(self):
         ''' Returns a string representation of the fraction '''
         if self.numerator == 0:
