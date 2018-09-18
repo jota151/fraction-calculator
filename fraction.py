@@ -9,7 +9,7 @@ class Fraction:
         if denom != 0:
             self.denominator = denom
         else:
-            raise ValueError
+            raise ValueError('\nDenominator cannot be 0!')
 
     def plus(self, fraction):
         ''' returns a new instance of class Fraction with the sum of self and other where other is another Fraction '''

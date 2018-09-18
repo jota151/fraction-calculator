@@ -28,8 +28,8 @@ def createFraction(fracName):
         denominator = getNumber('\nDenominator for {} :'.format(fracName))
         try:
             return Fraction(numerator, denominator)
-        except ValueError:
-            print('\nDenominator cannot be 0!')
+        except ValueError as e:
+            print(e)
 
 def printResult(frac1, frac2, op):
     ''' returns and instance of the Fraction class after computing given operation '''
@@ -60,7 +60,7 @@ def getNumber(message):
     while True:
         number = input(message)
         try:
-            return int(number)
+            return int(number) # float?
         except ValueError:
             print('\n{} is not an integer! Please enter an integer value.'.format(number))
 
