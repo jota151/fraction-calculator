@@ -7,6 +7,9 @@ class Fraction:
     '''
     def __init__(self, num, denom):
         ''' Constructor to define a fraction '''
+
+        # assign -ve to numerator only if either num or denom is -ve
+        # ^ is the XOR operator
         self.numerator = (abs(num) * -1) if (num < 0) ^ (denom < 0) else abs(num)
         if denom != 0:
             self.denominator = abs(denom)
@@ -73,12 +76,7 @@ class Fraction:
 
     def __str__(self):
         ''' Returns a string representation of the fraction '''
-        if self.numerator == 0:
-            return '0'
-        # elif self.numerator < 0 and self.denominator < 0:
-        #     return '{}/{}'.format(abs(self.numerator), abs(self.denominator))
-        else:
-            return '{}/{}'.format(self.numerator, self.denominator)
+        return '0' if self.numerator == 0 else '{}/{}'.format(self.numerator, self.denominator)
 
 class FractionTest(unittest.TestCase):
     ''' Test class to unit test the Fraction class implementation '''
