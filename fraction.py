@@ -1,3 +1,5 @@
+import unittest
+
 class Fraction:
     ''' A fraction class that will help us define simple fractions.
         The class will operate operations like add, subtract, multiply and divide.
@@ -77,3 +79,80 @@ class Fraction:
             return '{}/{}'.format(abs(self.numerator), abs(self.denominator))
         else:
             return '{}/{}'.format(self.numerator, self.denominator)
+
+class FractionTest(unittest.TestCase):
+    ''' Test class to unit test the Fraction class implementation '''
+
+    def test_init(self):
+        ''' Test the __init__ '''
+        fractionTest = Fraction(1, 2)
+        self.assertEqual(fractionTest.numerator, 1)
+        self.assertEqual(fractionTest.denominator, 2)
+
+    def test_init_error(self):
+        ''' Test __init__ when denominator is zero '''
+        with self.assertRaises(ValueError):
+            Fraction(9, 0)
+
+    def test_str(self):
+        ''' Test __str__ '''
+        fraction = Fraction(5, 9)
+        self.assertEqual(str(fraction), '5/9')
+
+    def test_str_zero(self):
+        ''' Test __str__ when numerator is 0 '''
+        fraction = Fraction(0, 101)
+        self.assertEqual(str(fraction), '0')
+
+    def test_str_negative(self):
+        ''' Test __str__ for either num or denom is -ve '''
+        fraction = Fraction(-5, 8)
+        self.assertEqual(str(fraction), '-5/8')
+
+    def test_str_both_negative(self):
+        ''' Test __str__ for both num and denom is -ve '''
+        fraction = Fraction(-5, -8)
+        self.assertEqual(str(fraction), '5/8')
+
+    def test_equals(self):
+        ''' Test the == operation '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+        f24 = Fraction(2,4)
+
+        self.assertTrue(f12 == f12)
+        self.assertTrue(f34 == f34)
+        self.assertTrue(f24 == f12)
+        self.assertFalse(f24 == f34)
+
+    def test_add(self):
+        ''' test the + operation '''
+        f12 = Fraction(1, 2)
+        f44 = Fraction(4, 4)
+
+        self.assertEqual(f12 + f12, f44)
+        self.assertEqual(f12 + f44, Fraction(12,8))
+        self.assertEqual(f12 + f12 +f12, Fraction(3, 2))
+
+    def test_minus(self):
+        ''' test the - operation '''
+        f128 = Fraction(12, 8)
+        f12 = Fraction(1, 2)
+
+        self.assertEqual(f128 - f12, Fraction(16, 16))
+
+    def test_times(self):
+        ''' test the * operation '''
+        f32 = Fraction(3, 2)
+        f12 = Fraction(1, 2)
+
+        self.assertEqual(f12 * f32, Fraction(3,4))
+
+    def test_divide(self):
+        ''' test the / operation '''
+        f128 = Fraction(12, 8)
+        f32 = Fraction(3, 2)
+
+        self.assertEqual(f128 / f32, Fraction(24, 24))
+
+    

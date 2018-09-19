@@ -5,7 +5,9 @@ __author__ = "Sayan Mukherjee"
 __version__ = "0.1.0"
 __license__ = "MIT"
 
-from fraction import Fraction
+import unittest
+from fraction import Fraction, FractionTest
+
 validOperators =  ['+', '-', '*', '/', '==', '!=', '<', '<=', '>', '>=']
 
 def main():
@@ -99,5 +101,6 @@ def test_suite():
 if __name__ == "__main__":
     """ This is executed when run from the command line """
     
-    test_suite()
-    main()
+    # test_suite()
+    unittest.main(exit=False, verbosity=2)
+    #   main()
