@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = "Sayan Mukherjee"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __license__ = "MIT"
 
 import unittest
@@ -80,27 +80,8 @@ def getNumber(message):
         except ValueError:
             print('\n{} is not an integer! Please enter an integer value.'.format(number))
 
-def test_suite():
-    ''' function that demonstrates that the Fraction class works properly '''
-
-    f12 = Fraction(1, 2)
-    f44 = Fraction(4, 4)
-    f128 = Fraction(12, 8)
-    f32 = Fraction(3, 2)
-
-    print('\n**********SAMPLE TEST CASES*************\n')
-    print(f12, '+', f12, '=', f12 + f12, '[4/4]')
-    print(f12, '+', f44, '=', f12 + f44, '[12/8]')
-    print(f128, '-', f12, '=', f128 - f12, '[16/16]' )
-    print(f12, '*', f32, '=', f12 * f32, '[3/4]')
-    print(f128, '/', f32, '=', f128 / f32, '[24/24]')
-    print(f128, "==", f32, "is", f128 == f32, '[True]')
-    print(f12, '+', f12, '+', f12, '==', f32, 'is', f12 + f12 +f12 == Fraction(3, 2), '[True]')
-    print('\n*****************************************\n')
-
 if __name__ == "__main__":
     """ This is executed when run from the command line """
     
-    # test_suite()
     unittest.main(exit=False, verbosity=2)
-    #   main()
+    main()

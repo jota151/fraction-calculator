@@ -7,9 +7,9 @@ class Fraction:
     '''
     def __init__(self, num, denom):
         ''' Constructor to define a fraction '''
-        self.numerator = num
+        self.numerator = (abs(num) * -1) if (num < 0) ^ (denom < 0) else abs(num)
         if denom != 0:
-            self.denominator = denom
+            self.denominator = abs(denom)
         else:
             raise ValueError('\nDenominator cannot be 0!')
 
@@ -75,8 +75,8 @@ class Fraction:
         ''' Returns a string representation of the fraction '''
         if self.numerator == 0:
             return '0'
-        elif self.numerator < 0 and self.denominator < 0:
-            return '{}/{}'.format(abs(self.numerator), abs(self.denominator))
+        # elif self.numerator < 0 and self.denominator < 0:
+        #     return '{}/{}'.format(abs(self.numerator), abs(self.denominator))
         else:
             return '{}/{}'.format(self.numerator, self.denominator)
 
@@ -124,6 +124,7 @@ class FractionTest(unittest.TestCase):
         self.assertTrue(f34 == f34)
         self.assertTrue(f24 == f12)
         self.assertFalse(f24 == f34)
+        self.assertTrue(Fraction(-1,2) == Fraction(-2,4))
 
     def test_add(self):
         ''' test the + operation '''
@@ -155,4 +156,52 @@ class FractionTest(unittest.TestCase):
 
         self.assertEqual(f128 / f32, Fraction(24, 24))
 
-    
+    def test_ne(self):
+        ''' test the != operation '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+        f24 = Fraction(2,4)
+
+        self.assertTrue(f12 != f34)
+        self.assertFalse(f12 != f24)
+
+    def test_lt(self):
+        ''' test the < opeeration '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+
+        self.assertTrue(f12 < f34)
+        self.assertFalse(Fraction(5,2) < Fraction(2,5))
+        self.assertTrue(Fraction(-1, 2) < Fraction(1, -3))
+
+    def test_le(self):
+        ''' test the <= operation '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+
+        self.assertTrue(f12 <= f12)
+        self.assertTrue(f12 <= f34)
+        self.assertTrue(Fraction(-1, 2) <= Fraction(1, -3))
+        self.assertTrue(Fraction(-1, 2) <= Fraction(-1, 3))
+
+    def test_gt(self):
+        ''' test the > operation '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+
+        self.assertFalse(f12 > f12)
+        self.assertTrue(f34 > f12)
+        self.assertTrue(Fraction(1, -3) > Fraction(-1, 2))
+        self.assertTrue(Fraction(-1, 3) > Fraction(-1, 2))
+        self.assertFalse(Fraction(-1, -3) > Fraction(-1, -2))
+
+    def test_ge(self):
+        ''' test the >= operation '''
+        f12 = Fraction(1,2)
+        f34 = Fraction(3,4)
+
+        self.assertTrue(f12 >= f12)
+        self.assertTrue(f34 >= f12)
+        self.assertTrue(Fraction(1, -3) >= Fraction(-1, 2))
+        self.assertTrue(Fraction(-1, 3) >= Fraction(-1, 2))
+        self.assertFalse(Fraction(-1, -3) >= Fraction(-1, -2))
