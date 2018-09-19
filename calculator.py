@@ -63,7 +63,6 @@ def getOperator():
 
     while True:
         operator = input("\nChoose one operator: {} ".format(validOperators))
-        # if operator == '+' or operator == '-' or operator == '*' or operator == '/':
         if operator in validOperators:
             return operator
         else:
